@@ -1,0 +1,10 @@
+{
+  "name": "coimbatore-business-directory",
+  "version": "1.0.0",
+  "description": "Full-stack Business Directory for Coimbatore",
+  "scripts": {
+    "server": "cd server && npm start",
+    "client": "cd client && npm run dev",
+    "start": "start.bat"
+  }
+}

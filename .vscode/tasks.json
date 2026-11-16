@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Backend Server",
+      "type": "shell",
+      "command": "${workspaceFolder}/bin/npm.cmd start",
+      "options": {
+        "cwd": "${workspaceFolder}/server",
+        "env": {
+          "PATH": "${workspaceFolder}/tools/node;${env:PATH}"
+        }
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "group": "servers",
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Start Frontend Client",
+      "type": "shell",
+      "command": "${workspaceFolder}/bin/npm.cmd run dev",
+      "options": {
+        "cwd": "${workspaceFolder}/client",
+        "env": {
+          "PATH": "${workspaceFolder}/tools/node;${env:PATH}"
+        }
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "group": "servers",
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Run Full App (Backend + Frontend)",
+      "dependsOn": [
+        "Start Backend Server",
+        "Start Frontend Client"
+      ],
+      "dependsOrder": "parallel",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}
